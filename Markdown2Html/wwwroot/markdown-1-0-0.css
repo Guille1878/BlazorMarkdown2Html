@@ -1,0 +1,229 @@
+﻿.md-bold {
+    font-weight: 500;
+}
+
+.md-italic {
+    font-style: italic;
+}
+
+.md-list {
+}
+
+.md-list-point {
+    padding-left: 20px;
+    display: inline-flex;
+}
+
+.md-list-item {
+    /*display: inline-flex; */
+}
+
+.md-list-row {
+    display: flex;
+    margin: 10px 0;
+}
+
+.md-quote-text {
+    color: darkgray;
+}
+
+    .md-quote-text p {
+        margin: 0 0 0 0.5rem;
+    }
+
+.md-code-text-comments {
+    color: rgb(71, 145, 63);
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    .md-body {
+        background-color: rgb(26, 26, 26);
+        color: white;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+        padding: 20px;
+        border-radius: 5px;
+    }
+
+    .md-code {
+        background-color: rgb(51, 51, 51);
+        padding: 20px;
+        line-height: 1.7em;
+        border-radius: 5px;
+        font-family: Consolas;
+        margin-bottom: 20px;
+        color: rgb(198, 205, 209);
+    }
+
+    .md-point-img {
+        background-image: url('point-white.png');
+        width: 20px;
+        background-repeat: no-repeat;
+    }
+
+    .md-code-text-ps {
+        color: rgb(198, 176, 66);
+    }
+
+    .md-body hr {
+        border-color: white;
+    }
+
+    .md-quote-img {
+        background-image: url('quote-white.png');
+        width: 25px;
+        padding-right: 8px;
+    }
+
+    .md-code-text-razor-keyword {
+        color: rgb(25, 24, 24);
+        background-color: rgb(237, 235, 170);
+    }
+
+    .md-code-text-razor-code-keyword {
+        color: rgb(82, 151, 194);
+    }
+
+    .md-code-text-razor-code-bg {
+        background-color: rgb(92, 92, 92);
+    }
+
+    .md-code-text-xml-element {
+        color: darkred;
+    }
+
+    .md-code-text-xml-text {
+        color: rgb(181, 72, 24);
+    }
+
+    .md-code-text-keyword {
+        color: rgb(72, 132, 169);
+    }
+
+    .md-code-text-class {
+        color: rgb(70, 174, 153);
+    }
+
+    .md-code-text-interface {
+        color: rgb(140, 168, 110);
+    }
+
+    .md-code-text-text {
+        color: rgb(198, 148, 121);
+    }
+
+    .md-code-text-html-component {
+        color: rgb(70, 174, 153);
+    }
+
+    .md-code-text-html-element {
+        color: rgb(72, 132, 169);
+    }
+
+    .md-code-text-html-braces {
+        color: rgb(88, 85, 76);
+    }
+
+    .md-code-text-html-prop {
+        color: rgb(148, 214, 244);
+    }
+
+    .md-code-text-html-text {
+        color: rgb(159, 173, 158);
+    }
+}
+
+/* Light mode */
+@media (prefers-color-scheme: light) {
+    .md-body {
+        background-color: snow;
+        color: black;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .md-code {
+        background-color: rgb(242, 242, 242);
+        padding: 20px;
+        line-height: 1.7em;
+        border-radius: 5px;
+        font-family: Consolas;
+        margin-bottom: 20px;
+        color: rgb(77, 78, 153);
+    }
+
+    .md-point-img {
+        background-image: url('point-black.png');
+        background-repeat: no-repeat;
+        width: 20px;
+    }
+
+    .md-quote-img {
+        background-image: url('quote-dark.png');
+        width: 25px;
+        padding-right: 8px;
+    }
+
+    .md-code-text-ps {
+        color: rgb(168, 151, 66);
+    }
+
+    .md-quote-text {
+        color: rgb(48, 65, 137);
+    }
+
+    .md-code-text-keyword {
+        color: rgb(51, 24, 255);
+    }
+
+    .md-code-text-interface,
+    .md-code-text-class {
+        color: rgb(67, 159, 190);
+    }
+
+    .md-code-text-text {
+        color: rgb(116, 83, 31);
+    }
+
+    .md-code-text-razor-keyword {
+        color: rgb(25, 24, 24);
+        background-color: rgb(237, 235, 170);
+    }
+
+    .md-code-text-razor-code-keyword {
+        color: rgb(10, 84, 248);
+    }
+
+    .md-code-text-razor-code-bg {
+        background-color: rgb(234, 234, 234);
+    }
+
+    .md-code-text-xml-element {
+        color: white;
+    }
+
+    .md-code-text-xml-text {
+        color: rgb(181, 72, 24);
+    }
+
+    .md-code-text-html-element {
+        color: rgb(181, 72, 24);
+    }
+
+    .md-code-text-html-component {
+        color: rgb(155, 32, 147);
+    }
+
+    .md-code-text-html-braces {
+        color: rgb(78, 77, 255);
+    }
+
+    .md-code-text-html-prop {
+        color: rgb(255, 26, 29);
+    }
+
+    .md-code-text-html-text {
+        color: rgb(16, 3, 255);
+    }
+}

@@ -1,0 +1,32 @@
+﻿@using Markdown2Html.Data
+@inject Markdown2Html.Services.IMarkDownService mdService
+
+<head>
+    <link href=@Settings.CssPath rel="stylesheet" />
+</head>
+<div>
+    @if (mdHtml.Value == null)
+    {
+        <h3>Non Markdown document found</h3>
+    }
+    else
+    {
+        <div class="markdown-cointainer">
+            @mdHtml
+        </div>
+    }
+</div>
+
+
+@code {
+
+    [Parameter]
+    public string documentName { get; set; }
+
+    private MarkupString mdHtml { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        mdHtml = await mdService.GetMdAsHtmlAsync(documentName);
+    }
+}

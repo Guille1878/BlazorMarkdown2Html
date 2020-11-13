@@ -1,0 +1,14 @@
+[
+  {
+    "outputFileName": "wwwroot/css/markdown-1-0-0.min.css",
+    "inputFiles": [
+      "wwwroot/css/markdown-1-0-0.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/markdown-1-0-0.min.css",
+    "inputFiles": [
+      "wwwroot/markdown-1-0-0.css"
+    ]
+  }
+]

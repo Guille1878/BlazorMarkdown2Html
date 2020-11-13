@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <RazorLangVersion>3.0</RazorLangVersion>
+    <ApplicationIcon>guilleicontransp.ico</ApplicationIcon>
+    <Authors>Wille Esteche</Authors>
+    <Company>Wille Esteche</Company>
+    <Description>Display markdown files in html format directly in a Blazor with a component. 
+The only think a developer need to do it is to add the path to the file e.g. "ReadMe.md" into the parameter "documentName" and the rest it is handled by the component. If you give the default css it even handle dark and light mode heritated from the webbrowser.</Description>
+    <Copyright>© 2020 - Wille Esteche</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://esteche.azurewebsites.net/markdowndocs/BlazorMarkdown2Html</PackageProjectUrl>
+    <PackageIcon>guilleicontransp.png</PackageIcon>
+    <PackageTags>c# html blazor markdown dm</PackageTags>
+    <Product>BlazorMarkdown2Html</Product>
+    <PackageId>BlazorMarkdown2Html</PackageId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="bundleconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\OneDrive\Pictures\guilleicontransp.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="bundleconfig.json" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="EstecheAssemblies" Version="1.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.1.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.1.9" />
+    <PackageReference Include="Microsoft.Toolkit.Parsers" Version="6.1.1" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Content Update="Data\csharp-classes.json">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Data\csharp-keywords.json">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
