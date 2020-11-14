@@ -1,10 +1,10 @@
 ﻿using Microsoft.JSInterop;
 using System.Threading.Tasks;
-using Markdown2Html.Services;
+using BlazorMarkdown2Html.Services;
 using Microsoft.Extensions.DependencyInjection;
-using Markdown2Html.Data;
+using BlazorMarkdown2Html.Data;
 
-namespace Markdown2Html.Models
+namespace BlazorMarkdown2Html.Models
 {
     public static class Markdown2HtmlExtensions
     {
@@ -13,7 +13,7 @@ namespace Markdown2Html.Models
         /// </summary>
         /// <param name="cssPath">Give a custom css otherwise you use the default one</param>
         /// <returns></returns>
-        public static IServiceCollection AddMarkdown2Html(this IServiceCollection serviceCollection, string cssPath = null)
+        public static IServiceCollection AddBlazorMarkdown2Html(this IServiceCollection serviceCollection, string cssPath = null)
         {
             serviceCollection.AddScoped<IMarkDownService, MarkDownService>();
             serviceCollection.AddScoped<ICodeTextService, CodeTextService>();

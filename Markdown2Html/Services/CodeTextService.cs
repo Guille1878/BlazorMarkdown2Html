@@ -1,11 +1,11 @@
 ﻿using EstecheAssemblies;
-using Markdown2Html.Models;
+using BlazorMarkdown2Html.Models;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using static Markdown2Html.Models.ProgrammingKeyWords;
+using static BlazorMarkdown2Html.Models.ProgrammingKeyWords;
 
-namespace Markdown2Html.Services
+namespace BlazorMarkdown2Html.Services
 {
     public class CodeTextService: ICodeTextService
     {
@@ -14,12 +14,12 @@ namespace Markdown2Html.Services
         private static char[] blazorRowCloseSeparators = new char[2] { ')', '}' };
         private const string codeTabSpace = "&nbsp;&nbsp;&nbsp;";
 
-        public async Task<string> GetCodeTextAsync(string text, string language = null)
+        public string GetCodeText(string text, string language = null)
         {
             if (language == null)
                 return text;
 
-            var lang = await GetLanguageAsync(language);
+            var lang = GetLanguage(language);
 
             if (lang.FoundSynonymous)
             {

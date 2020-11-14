@@ -1,9 +1,10 @@
-﻿@using Markdown2Html.Data
-@inject Markdown2Html.Services.IMarkDownService mdService
+﻿@using BlazorMarkdown2Html.Data
+@inject BlazorMarkdown2Html.Services.IMarkDownService mdService
 
 <head>
     <link href=@Settings.CssPath rel="stylesheet" />
 </head>
+
 <div>
     @if (mdHtml.Value == null)
     {

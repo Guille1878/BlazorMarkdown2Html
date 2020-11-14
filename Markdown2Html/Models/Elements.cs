@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Markdown2Html.Models
+namespace BlazorMarkdown2Html.Models
 {
     internal class Elements 
     {

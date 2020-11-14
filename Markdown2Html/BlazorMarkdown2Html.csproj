@@ -15,6 +15,15 @@ The only think a developer need to do it is to add the path to the file e.g. "Re
     <PackageTags>c# html blazor markdown dm</PackageTags>
     <Product>BlazorMarkdown2Html</Product>
     <PackageId>BlazorMarkdown2Html</PackageId>
+    <RepositoryUrl>https://github.com/Guille1878/BlazorMarkdown2Html</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <FileVersion>1.0.1.0</FileVersion>
+    <Version>1.0.1</Version>
+    <RootNamespace>BlazorMarkdown2Html</RootNamespace>
+    <AssemblyName>BlazorMarkdown2Html</AssemblyName>
+    <PackageReleaseNotes>* Code Block Keywords cointainer patch
+* CSS path fix</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -39,13 +48,8 @@ The only think a developer need to do it is to add the path to the file e.g. "Re
 
 
   <ItemGroup>
-    <Content Update="Data\csharp-classes.json">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="Data\csharp-keywords.json">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    <Content Update="wwwroot\markdown-1-0-1.css">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 

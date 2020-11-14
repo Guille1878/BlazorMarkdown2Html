@@ -1,12 +1,11 @@
 ﻿
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using static BlazorMarkdown2Html.Data.StaticWordsData;
 
-namespace Markdown2Html.Models
+namespace BlazorMarkdown2Html.Models
 {
     public sealed partial class ProgrammingKeyWords
     {
@@ -18,43 +17,32 @@ namespace Markdown2Html.Models
         private readonly static string[] razorSynonymous = { "razor", "blazor" };
         private readonly static string[] xmlSynonymous = { "xml", "xmla" };
 
-        private readonly static string filePath = $"{AppDomain.CurrentDomain.BaseDirectory}\\data\\";
-
         public static Dictionary<CodeLanguages, Dictionary<CodeWordTypes, IEnumerable<string>>> WordLists => 
             wordLists ?? new Dictionary<CodeLanguages, Dictionary<CodeWordTypes, IEnumerable<string>>>();
 
-        private static async Task ImportCSharpWords()
+        private static void ImportCSharpWords()
         {
             wordLists??= new Dictionary<CodeLanguages, Dictionary<CodeWordTypes, IEnumerable<string>>>();
-            using (var sr = new StreamReader($"{filePath}csharp-keywords.json"))
-                wordLists.Add(CodeLanguages.CSharp, new Dictionary<CodeWordTypes, IEnumerable<string>> { { CodeWordTypes.KeyWord, DeserializeJsonList(await sr.ReadToEndAsync()) } });
-
-            using (var sr = new StreamReader($"{filePath}csharp-classes.json"))
-                wordLists[CodeLanguages.CSharp].Add(CodeWordTypes.Class, DeserializeJsonList(await sr.ReadToEndAsync()));
+            wordLists.Add(CodeLanguages.CSharp, new Dictionary<CodeWordTypes, IEnumerable<string>> { { CodeWordTypes.KeyWord, KeywordsCSharp } });
+            wordLists[CodeLanguages.CSharp].Add(CodeWordTypes.Class, ClassesCSharp );
         }
 
-        private static async Task ImportCWords()
+        private static void ImportCWords()
         {
             wordLists??= new Dictionary<CodeLanguages, Dictionary<CodeWordTypes, IEnumerable<string>>>();
-
-            using (var sr = new StreamReader($"{filePath}c-keywords.json"))
-                wordLists.Add(CodeLanguages.C, new Dictionary<CodeWordTypes, IEnumerable<string>> { { CodeWordTypes.KeyWord, DeserializeJsonList(await sr.ReadToEndAsync()) } });
+            wordLists.Add(CodeLanguages.C, new Dictionary<CodeWordTypes, IEnumerable<string>> { { CodeWordTypes.KeyWord, KeywordsC } });
         }
 
-        private static async Task ImportRazorWords()
+        private static void ImportRazorWords()
         {
             wordLists??= new Dictionary<CodeLanguages, Dictionary<CodeWordTypes, IEnumerable<string>>>();
-
-            using (var sr = new StreamReader($"{filePath}razor-keywords.json"))
-                wordLists.Add(CodeLanguages.Blazor, new Dictionary<CodeWordTypes, IEnumerable<string>> { { CodeWordTypes.KeyWord, DeserializeJsonList(await sr.ReadToEndAsync()) } });
+            wordLists.Add(CodeLanguages.Blazor, new Dictionary<CodeWordTypes, IEnumerable<string>> { { CodeWordTypes.KeyWord, KeywordsRazor } });
         }
 
-        private static async Task ImportHtmlWords()
+        private static void ImportHtmlWords()
         {
             wordLists??= new Dictionary<CodeLanguages, Dictionary<CodeWordTypes, IEnumerable<string>>>();
-
-            using (var sr = new StreamReader($"{filePath}html-elements.json"))
-                wordLists.Add(CodeLanguages.HTML, new Dictionary<CodeWordTypes, IEnumerable<string>> { { CodeWordTypes.KeyWord, DeserializeJsonList(await sr.ReadToEndAsync()) } });
+            wordLists.Add(CodeLanguages.HTML, new Dictionary<CodeWordTypes, IEnumerable<string>> { { CodeWordTypes.KeyWord, ElementsHtml } });
         }
 
         public static bool IsKeyword(string word, CodeLanguage language) => 
@@ -69,7 +57,7 @@ namespace Markdown2Html.Models
             return WordLists[language.Language][CodeWordTypes.Class].Contains(word);
         }
 
-        public static async Task<CodeLanguage> GetLanguageAsync(string language)
+        public static CodeLanguage GetLanguage(string language)
         {
             var result = new CodeLanguage();
             language = language.ToLower();
@@ -79,7 +67,7 @@ namespace Markdown2Html.Models
                 result.SetLanguage(CodeLanguages.CSharp, CodeStructures.C);
 
                 if (!WordLists.ContainsKey(result.Language))
-                    await ImportCSharpWords();
+                    ImportCSharpWords();
 
                 return result;
             }
@@ -90,7 +78,7 @@ namespace Markdown2Html.Models
                 result.SetLanguage(CodeLanguages.C, CodeStructures.C);
 
                 if (!WordLists.ContainsKey(CodeLanguages.C))
-                    await ImportCWords();
+                    ImportCWords();
 
                 return result;
             }
@@ -113,7 +101,7 @@ namespace Markdown2Html.Models
                 result.SetLanguage(CodeLanguages.HTML, CodeStructures.Xml);
 
                 if (!WordLists.ContainsKey(CodeLanguages.HTML))
-                    await ImportHtmlWords();
+                    ImportHtmlWords();
                   
                 return result;
             }
@@ -129,13 +117,13 @@ namespace Markdown2Html.Models
                 result.SetLanguage(CodeLanguages.Blazor, CodeStructures.razor);
 
                 if (!WordLists.ContainsKey(CodeLanguages.Blazor))
-                    await ImportRazorWords();
+                    ImportRazorWords();
 
                 if (!WordLists.ContainsKey(CodeLanguages.HTML))
-                    await ImportHtmlWords();
+                    ImportHtmlWords();
 
                 if (!WordLists.ContainsKey(CodeLanguages.CSharp))
-                    await ImportCSharpWords();
+                    ImportCSharpWords();
 
                 return result;
             }
@@ -143,15 +131,5 @@ namespace Markdown2Html.Models
             return result;
         }
 
-        private static string[] DeserializeJsonList(in string text)
-        {
-            var textTrimmed = RemoveWhitespace(text);
-
-            return textTrimmed[(textTrimmed.IndexOf('\"') + 1)..textTrimmed.LastIndexOf('\"')].Split("\",\"");
-
-            static string RemoveWhitespace(string input) => new string(input.Trim().ToCharArray()
-                    .Where(c => !Char.IsWhiteSpace(c))
-                    .ToArray());
-        }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Markdown2Html.Models
+﻿namespace BlazorMarkdown2Html.Models
 {
     public enum CodeWordTypes
     {

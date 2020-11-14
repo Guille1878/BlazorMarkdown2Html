@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
 
-namespace Markdown2Html.Services
+namespace BlazorMarkdown2Html.Services
 {
     public interface ICodeTextService
     {
-        Task<string> GetCodeTextAsync(string text, string language = null);
+        string GetCodeText(string text, string language = null);
     }
 }

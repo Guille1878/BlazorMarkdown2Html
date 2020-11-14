@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Markdown2Html", "Markdown2Html\Markdown2Html.csproj", "{DF1FD153-6E18-4321-9C02-5D41B8CC5461}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorMarkdown2Html", "Markdown2Html\BlazorMarkdown2Html.csproj", "{DF1FD153-6E18-4321-9C02-5D41B8CC5461}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAppSSTest", "BlazorAppSSTest\BlazorAppSSTest.csproj", "{1A83A197-CCA7-4143-9CC5-A20D4711B9FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAppSSTest", "BlazorAppSSTest\BlazorAppSSTest.csproj", "{1A83A197-CCA7-4143-9CC5-A20D4711B9FB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAppSSTest3", "BlazorSSAppTest\BlazorAppSSTest3.csproj", "{16E5CF23-660C-413A-A3E8-C93286C515A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{1A83A197-CCA7-4143-9CC5-A20D4711B9FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A83A197-CCA7-4143-9CC5-A20D4711B9FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A83A197-CCA7-4143-9CC5-A20D4711B9FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16E5CF23-660C-413A-A3E8-C93286C515A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16E5CF23-660C-413A-A3E8-C93286C515A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16E5CF23-660C-413A-A3E8-C93286C515A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16E5CF23-660C-413A-A3E8-C93286C515A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

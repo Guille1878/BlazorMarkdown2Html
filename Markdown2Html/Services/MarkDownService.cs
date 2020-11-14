@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Markdown2Html.Services
+namespace BlazorMarkdown2Html.Services
 {
     public partial class MarkDownService : IMarkDownService
     {
@@ -88,7 +88,7 @@ namespace Markdown2Html.Services
 
                 case MarkdownBlockType.Code:
                     var codeBlock = (CodeBlock)block;
-                    return $"<div class='md-code'>{await _codeTextService.GetCodeTextAsync(codeBlock.Text, codeBlock.CodeLanguage)}</div>";
+                    return $"<div class='md-code'>{_codeTextService.GetCodeText(codeBlock.Text, codeBlock.CodeLanguage)}</div>";
 
                 case MarkdownBlockType.List:
                     var list = (ListBlock)block;

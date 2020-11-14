@@ -1,11 +1,8 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.Toolkit.Parsers.Markdown;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
-namespace Markdown2Html.Services
+namespace BlazorMarkdown2Html.Services
 {
     public interface IMarkDownService
     {

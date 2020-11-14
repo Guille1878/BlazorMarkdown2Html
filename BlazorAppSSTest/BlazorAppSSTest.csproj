@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Markdown2Html\Markdown2Html.csproj" />
+    <PackageReference Include="BlazorMarkdown2Html" Version="1.0.1" />
   </ItemGroup>
 
   <ItemGroup>

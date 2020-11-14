@@ -1,11 +1,13 @@
-using BlazorMarkdown2Html.Models;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using BlazorMarkdown2Html.Models;
 
-namespace BlazorAppSSTest
+namespace BlazorAppSSTest3
 {
     public class Startup
     {
@@ -23,7 +25,6 @@ namespace BlazorAppSSTest
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddBlazorMarkdown2Html();
-            //services.AddMarkdown2Html("./css/markdown-test.css");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
