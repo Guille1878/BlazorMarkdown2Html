@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using static BlazorMarkdown2Html.Data.StaticWordsData;
 
 namespace BlazorMarkdown2Html.Models

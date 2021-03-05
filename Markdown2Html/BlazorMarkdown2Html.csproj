@@ -17,13 +17,13 @@ The only think a developer need to do it is to add the path to the file e.g. "Re
     <PackageId>BlazorMarkdown2Html</PackageId>
     <RepositoryUrl>https://github.com/Guille1878/BlazorMarkdown2Html</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
-    <AssemblyVersion>1.0.1.0</AssemblyVersion>
-    <FileVersion>1.0.1.0</FileVersion>
-    <Version>1.0.1</Version>
+    <AssemblyVersion>1.0.2.0</AssemblyVersion>
+    <FileVersion>1.0.2.0</FileVersion>
+    <Version>1.0.2</Version>
     <RootNamespace>BlazorMarkdown2Html</RootNamespace>
     <AssemblyName>BlazorMarkdown2Html</AssemblyName>
-    <PackageReleaseNotes>* Code Block Keywords cointainer patch
-* CSS path fix</PackageReleaseNotes>
+    <PackageReleaseNotes>* It is now compatible with Blazor WSAM too. The md files should be placed in wwwroot.
+</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,7 +31,7 @@ The only think a developer need to do it is to add the path to the file e.g. "Re
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\..\OneDrive\Pictures\guilleicontransp.png">
+    <None Include="E:\OneDrive\Pictures\guilleicontransp.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>

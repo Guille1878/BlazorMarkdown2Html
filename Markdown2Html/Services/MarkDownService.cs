@@ -4,21 +4,27 @@ using Microsoft.JSInterop;
 using Microsoft.Toolkit.Parsers.Markdown;
 using Microsoft.Toolkit.Parsers.Markdown.Blocks;
 using Microsoft.Toolkit.Parsers.Markdown.Inlines;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace BlazorMarkdown2Html.Services
 {
     public partial class MarkDownService : IMarkDownService
     {
+        const string fileNotExistsMessage = "The md-file should be placed in the root of the Project when using Bazor Server Side. When using WASM place the file in the wwwroot and there, in the folder you wish.";
+
         private readonly IJSRuntime _javascript;
         private readonly ICodeTextService _codeTextService;
+        private readonly HttpClient _httpClient;
 
-        public MarkDownService(IJSRuntime javascript, ICodeTextService codeTextService)
+        public MarkDownService(IJSRuntime javascript, ICodeTextService codeTextService, HttpClient httpClient = null)
         {
             _javascript = javascript;
             _codeTextService = codeTextService;
+            _httpClient = httpClient ?? throw new ArgumentNullException("Your project needs an injection dependency to a HttpClient. At least one with your project folder base address as URL for accessing wwwroot files.");
         }
 
         private async void AddCss()
@@ -53,11 +59,32 @@ namespace BlazorMarkdown2Html.Services
             if (!documentName.Contains(".md"))
                 documentName = $"{documentName}.md";
 
-            using var sr = new StreamReader(documentName);
-
-            string md = await sr.ReadToEndAsync();
-
+            Exception exception = null;
             MarkdownDocument document = new MarkdownDocument();
+            string md = "";
+            try
+            {
+                using var sr = new StreamReader(documentName);
+                md = await sr.ReadToEndAsync();
+            }
+            catch (FileNotFoundException)
+            {
+                try
+                {
+                    md = await _httpClient.GetStringAsync($"/{documentName}");
+                }
+                catch (Exception e)
+                {
+
+                    exception = new Exception($"{fileNotExistsMessage} Error: <{e.Message}>");
+                }
+            }
+            catch (Exception ex)
+            {
+                exception = new Exception($"{fileNotExistsMessage} Error: <{ex.Message}>");
+            }
+            if (exception != null)
+                throw exception;
             document.Parse(md);
 
             string html = "<div class='md-body'>";
